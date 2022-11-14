@@ -10,6 +10,6 @@
 
 @layer components {
   .font-em {
-    @apply uppercase font-bebas font-bold;
+    @apply uppercase font-bebas;
   }
 }

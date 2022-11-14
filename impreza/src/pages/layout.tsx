@@ -37,7 +37,7 @@ const Nav = () => {
 
   const classNames = 'rounded-full py-3 px-7 mx-1 bg-content-bg-alt text-content-heading hover:bg-content-heading hover:text-content-bg-alt transition-colors duration-300'
   return (
-    <nav className={`fixed font-em text-2xl w-screen pt-9 z-10 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
+    <nav className={`fixed font-bold font-em text-2xl w-screen pt-9 z-10 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
       <ul className='flex'>
         <li className='flex-auto'><Link href="/" className='rounded-full bg-content-heading text-white py-3.5 px-8 ml-10'>Impreza Studio</Link></li>
         <li><Link href="/projects" className={classNames}>Projects</Link></li>
