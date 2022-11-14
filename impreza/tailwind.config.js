@@ -10,8 +10,14 @@ module.exports = {
       body: '"Inter"'
     },
     extend: {
+      backgroundImage: {
+        'hero': "url('/images/hero.jpeg')"
+      },
       colors: {
-        'footer-blue': '#228EC6'
+        'footer-link-hover': '#228EC6',
+        'content-heading': '#212128',
+        'footer-bg': '#15141A',
+        'content-bg-alt': '#F5F8FD',
       },
       fontFamily: {
         bebas: ['var(--font-bebas)']

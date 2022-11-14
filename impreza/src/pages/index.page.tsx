@@ -14,7 +14,9 @@ export default function Home() {
 
 const Hero = () => {
   return (
-    <Image src={hero} alt="" className="w-screen h-screen rounded-lg" />
+    <div className='w-vw h-[94vh] mb-10 relative'>
+      <Image src={hero} alt="" fill={true} className="rounded-[2.5rem] object-cover"/>
+    </div>
   )
 }
 
