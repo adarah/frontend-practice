@@ -6,11 +6,19 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      body: '"Inter"'
+    },
     extend: {
       colors: {
         'footer-blue': '#228EC6'
+      },
+      fontFamily: {
+        bebas: ['var(--font-bebas)']
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
