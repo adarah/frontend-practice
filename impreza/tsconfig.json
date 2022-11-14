@@ -19,11 +19,13 @@
     "jsx": "preserve",
     "incremental": true,
     "importsNotUsedAsValues": "error",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "*"
-      ]
+        "src/*"
+      ],
+      "@images/*": ["public/images/*"],
+      "@fonts/*": ["public/fonts/*"]
     }
   },
   "include": [
