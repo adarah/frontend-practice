@@ -1,6 +1,10 @@
 {
 	"name": "Node.js & TypeScript",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye"
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye",
+	"remoteUser": "node",
+	"mounts": [
+		"source=${localEnv:HOME}/Downloads/impreza,target=/home/node/impreza,type=bind,consistency=cached"
+	]
 
 	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
 	// "features": {},
