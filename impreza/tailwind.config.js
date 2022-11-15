@@ -24,6 +24,7 @@ module.exports = {
       },
       colors: {
         'footer-link-hover': '#228EC6',
+        'content-primary': '#212128',
         'content-heading': '#212128',
         'footer-bg': '#15141A',
         'content-bg-alt': '#F5F8FD',

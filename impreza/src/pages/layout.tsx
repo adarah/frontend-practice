@@ -1,4 +1,4 @@
-import { bebasNeue, inter } from '@/fonts'
+import { bebasNeue } from '@/fonts'
 import { ScrollDirection, useScroll } from '@/hooks/use-scroll'
 import Link from "next/link"
 import { ReactNode, useEffect, useState } from "react"
@@ -9,13 +9,13 @@ export interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={bebasNeue.variable}>
-      <div className='pt-7 px-7'>
-        <Nav />
-        <main>{children}</main>
+    <>
+      <div className={bebasNeue.variable}>
+          <Nav />
+          <main className='z-10 relative'>{children}</main>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   )
 }
 
@@ -37,7 +37,7 @@ const Nav = () => {
 
   const classNames = 'rounded-full py-3.5 px-8 bg-content-bg-alt text-content-heading hover:bg-content-heading hover:text-content-bg-alt transition-colors duration-300'
   return (
-    <nav className={`fixed font-bold font-em text-2xl w-screen pt-9 z-10 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
+    <nav className={`fixed font-bold font-em text-2xl w-screen px-7 pt-16 z-20 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
       <ul className='flex space-x-3'>
         <li className='flex-auto'><Link href="/" className='rounded-full py-3.5 px-8 bg-content-heading text-white ml-10'>Impreza Studio</Link></li>
         <li><Link href="/projects" className={classNames}>Projects</Link></li>
@@ -52,30 +52,33 @@ const Nav = () => {
 const Footer = () => {
   const transitionClass = "hover:text-footer-link-hover transition-colors duration-300"
   return (
-    <footer className="flex justify-around bg-footer-bg text-white">
-      <div className="flex flex-col">
-        <span className="font-em">Have a project?</span>
-        <Link href="mailto:info@example.com" className={`${transitionClass} underline font-em`}>Let&apos;s talk</Link>
-        <Link href="mailto:info@example.com" className={transitionClass}>info@example.com</Link>
+    <footer className='sticky bottom-0 w-full'>
+      <div className="flex justify-around bg-footer-bg text-white">
+        <div className="h-full flex flex-col justify-between my-36">
+          <span className="font-em text-5xl">Have a project?</span>
+          <Link href="mailto:info@example.com" className={`${transitionClass} underline font-em text-9xl`}>Let&apos;s talk!</Link>
+          <Link href="mailto:info@example.com" className={`${transitionClass} text-xl`}>info@example.com</Link>
+        </div>
+        <nav className='my-36'>
+          <span className="font-em text-5xl">Navigation</span>
+          <ul className='text-2xl'>
+            <li><Link href="/projects" className={transitionClass}>Projects</Link></li>
+            <li><Link href="/journal" className={transitionClass}>Journal</Link></li>
+            <li><Link href="/about" className={transitionClass}>About</Link></li>
+            <li><Link href="/contact" className={transitionClass}>Contact</Link></li>
+          </ul>
+        </nav>
+        <nav className='flex-col justify-between my-36'>
+          <span className="font-em text-5xl">Socials</span>
+          <ul className='text-2xl'>
+            <li><Link href="" className={transitionClass}>Behance</Link></li>
+            <li><Link href="" className={transitionClass}>Dribble</Link></li>
+            <li><Link href="" className={transitionClass}>Facebook</Link></li>
+            <li><Link href="" className={transitionClass}>Instagram</Link></li>
+          </ul>
+        </nav>
+
       </div>
-      <nav>
-        <span className="font-em">Navigation</span>
-        <ul>
-          <li><Link href="/projects" className={transitionClass}>Projects</Link></li>
-          <li><Link href="/journal" className={transitionClass}>Journal</Link></li>
-          <li><Link href="/about" className={transitionClass}>About</Link></li>
-          <li><Link href="/contact" className={transitionClass}>Contact</Link></li>
-        </ul>
-      </nav>
-      <nav>
-        <span className="font-em">Socials</span>
-        <ul>
-          <li><Link href="" className={transitionClass}>Behance</Link></li>
-          <li><Link href="" className={transitionClass}>Dribble</Link></li>
-          <li><Link href="" className={transitionClass}>Facebook</Link></li>
-          <li><Link href="" className={transitionClass}>Instagram</Link></li>
-        </ul>
-      </nav>
     </footer>
   )
 }
