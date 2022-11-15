@@ -3,8 +3,8 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import hero from '@images/hero.jpeg';
 import type { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
-import { useCountUp } from 'use-count-up'
+import { useState } from 'react';
+import { useCountUp } from 'use-count-up';
 
 import { getProjects } from './project';
 
@@ -64,36 +64,36 @@ const questions: FaqEntry[] = [
   {
     question: 'What are your areas of focus as a UI/UX and web design agency?',
     answer: 'We use an integrated approach to solving problems, and our team consists of specialists with different competencies. The main composition of the agency is presented in this section. To solve indivquestionual problems, we strengthen the team, working with partners from various marketing areas. We carry out effective management of projects of varying complexity, and the experience of cooperation with small, medium and large businesses allows us to be versatile and efficient.',
-    color: 'text-yellow-100'
+    color: 'text-yellow-200/90'
   },
   {
     question: 'What separates from other top UX and web design agencies?',
     answer: 'We use an integrated approach to solving problems, and our team consists of specialists with different competencies. The main composition of the agency is presented in this section. To solve indivquestionual problems, we strengthen the team, working with partners from various marketing areas. We carry out effective management of projects of varying complexity, and the experience of cooperation with small, medium and large businesses allows us to be versatile and efficient.',
-    color: 'text-pink-300'
+    color: 'text-pink-300/90'
   },
   {
     question: 'Can your UX design agency help me with web design?',
     answer: 'We use an integrated approach to solving problems, and our team consists of specialists with different competencies. The main composition of the agency is presented in this section. To solve indivquestionual problems, we strengthen the team, working with partners from various marketing areas. We carry out effective management of projects of varying complexity, and the experience of cooperation with small, medium and large businesses allows us to be versatile and efficient.',
-    color: 'text-purple-400'
+    color: 'text-purple-300/90'
   },
   {
     question: 'Do you branding or should i hire a separate branding agency',
     answer: 'We use an integrated approach to solving problems, and our team consists of specialists with different competencies. The main composition of the agency is presented in this section. To solve indivquestionual problems, we strengthen the team, working with partners from various marketing areas. We carry out effective management of projects of varying complexity, and the experience of cooperation with small, medium and large businesses allows us to be versatile and efficient.',
-    color: 'text-cyan-200'
+    color: 'text-sky-300/90'
   },
   {
     question: 'How much does it cost to hire you for a UI/UX design project',
     answer: 'We use an integrated approach to solving problems, and our team consists of specialists with different competencies. The main composition of the agency is presented in this section. To solve individual problems, we strengthen the team, working with partners from various marketing areas. We carry out effective management of projects of varying complexity, and the experience of cooperation with small, medium and large businesses allows us to be versatile and efficient.',
-    color: 'text-green-300'
+    color: 'text-emerald-300/90'
   },
 ]
 
 const Faq = () => {
   const [current, setCurrent] = useState('')
   return (
-    <section className='bg-content-primary py-32 px-16'>
-      <h2 className='font-em text-7xl text-white'>FAQ</h2>
-      <ul>
+    <section className='bg-content-primary pt-16 pb-32 px-48'>
+      <h2 className='font-em text-8xl text-white py-12'>FAQ</h2>
+      <ul className='border-y border-white/30 divide-y divide-white/30 max-w-5xl'>
         {questions.map((q) => (<FaqItem key={q.question} entry={q} open={q.question === current} setCurrent={setCurrent} />))}
       </ul>
     </section >
@@ -107,11 +107,13 @@ interface FaqItemProps {
 }
 
 const FaqItem = ({ entry: q, open, setCurrent }: FaqItemProps) => {
-  const [parent] = useAutoAnimate<HTMLLIElement>()
   return (
-    <li ref={parent} className={q.color}>
-      <div className='font-em text-5xl' onClick={() => setCurrent(open ? '' : q.question)} >{q.question}</div>
-      {open && <p className="text-2xl">{q.answer}</p>}
+    <li className={q.color} onClick={() => setCurrent(open ? '' : q.question)}>
+      <div className='font-em text-4xl py-7 flex justify-between' >
+        <span>{q.question}</span>
+        <span className={'flex-shrink h-min align-middle text-xl transition-transform duration-300' + ` ${open ? 'rotate-180' : ''}`}>▾</span>
+      </div>
+      <p className={"text-xl leading-8 transition-all duration-300" + ` ${open ? 'py-6 opacity-1 max-h-64' : 'invisible max-h-0 opacity-0'}`}>{q.answer}</p>
     </li>
   )
 }

@@ -35,15 +35,15 @@ const Nav = () => {
     }
   }, [scroll])
 
-  const classNames = 'rounded-full py-3.5 px-8 bg-content-bg-alt text-content-heading hover:bg-content-heading hover:text-content-bg-alt transition-colors duration-300'
+  const classNames = 'rounded-full py-3.5 px-9 bg-content-bg-alt text-content-heading hover:bg-content-heading hover:text-content-bg-alt transition-colors duration-300'
   return (
-    <nav className={`fixed font-bold font-em text-2xl w-screen px-7 pt-16 z-20 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
+    <nav className={`fixed font-bold font-em text-2xl w-screen px-14 py-14 z-20 transition duration-700 ${visible ? '' : '-translate-y-96'}`}>
       <ul className='flex space-x-3'>
-        <li className='flex-auto'><Link href="/" className='rounded-full py-3.5 px-8 bg-content-heading text-white ml-10'>Impreza Studio</Link></li>
-        <li><Link href="/projects" className={classNames}>Projects</Link></li>
+        <li className='flex-auto'><Link href="/" className='rounded-full py-3.5 px-9 bg-content-heading text-white'>Impreza Studio</Link></li>
+        <li className=''><Link href="/projects" className={classNames}>Projects</Link></li>
         <li><Link href="/journal" className={classNames}>Journal</Link></li>
         <li><Link href="/about" className={classNames}>About</Link></li>
-        <li><Link href="/contact" className={classNames + ' mr-20'}>Contact</Link></li>
+        <li><Link href="/contact" className={classNames}>Contact</Link></li>
       </ul>
     </nav>
   )
@@ -53,14 +53,14 @@ const Footer = () => {
   const transitionClass = "hover:text-footer-link-hover transition-colors duration-300"
   return (
     <footer className='sticky bottom-0 w-full'>
-      <div className="flex justify-around bg-footer-bg text-white">
-        <div className="h-full flex flex-col justify-between my-36">
-          <span className="font-em text-5xl">Have a project?</span>
-          <Link href="mailto:info@example.com" className={`${transitionClass} underline font-em text-9xl`}>Let&apos;s talk!</Link>
+      <div className="grid grid-cols-4 grid-rows-2 bg-footer-bg text-white py-32 px-30">
+        <div className="col-span-2">
+          <span className="font-em text-4xl mb-10 row-span-2">Have a project?</span>
+          <Link href="mailto:info@example.com" className={`${transitionClass} underline font-em text-9xl row-span-4`}>Let&apos;s talk!</Link>
           <Link href="mailto:info@example.com" className={`${transitionClass} text-xl`}>info@example.com</Link>
         </div>
-        <nav className='my-36'>
-          <span className="font-em text-5xl">Navigation</span>
+        <nav className='col-span-1'>
+          <span className="font-em text-5xl mb-10">Navigation</span>
           <ul className='text-2xl'>
             <li><Link href="/projects" className={transitionClass}>Projects</Link></li>
             <li><Link href="/journal" className={transitionClass}>Journal</Link></li>
@@ -68,8 +68,8 @@ const Footer = () => {
             <li><Link href="/contact" className={transitionClass}>Contact</Link></li>
           </ul>
         </nav>
-        <nav className='flex-col justify-between my-36'>
-          <span className="font-em text-5xl">Socials</span>
+        <nav className='col-span-1'>
+          <span className="font-em text-5xl mb-10">Socials</span>
           <ul className='text-2xl'>
             <li><Link href="" className={transitionClass}>Behance</Link></li>
             <li><Link href="" className={transitionClass}>Dribble</Link></li>

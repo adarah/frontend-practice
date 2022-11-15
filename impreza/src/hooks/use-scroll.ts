@@ -19,10 +19,7 @@ export function useScroll(options?: UseScrollOptions) {
     let timer: ReturnType<typeof setTimeout> | undefined
     let pos = window.scrollY
     const onScroll = () => {
-      console.log('on scroll')
-      if (timer !== undefined) {
-        clearTimeout(timer)
-      }
+      clearTimeout(timer)
       timer = setTimeout(() => setScroll(ScrollDirection.NONE), interval)
       setScroll(pos > window.scrollY ? ScrollDirection.UP : ScrollDirection.DOWN)
       pos = window.scrollY
