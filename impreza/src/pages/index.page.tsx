@@ -89,24 +89,35 @@ const questions: FaqEntry[] = [
 ]
 
 const Faq = () => {
-  const [parent] = useAutoAnimate<HTMLUListElement>()
   const [current, setCurrent] = useState('')
   return (
     <section className='bg-content-primary py-32 px-16'>
       <h2 className='font-em text-7xl text-white'>FAQ</h2>
-      <ul ref={parent}>
-        {questions.map((q) => (
-          <li key={q.question} className={q.color}>
-            <div
-              className='font-em text-5xl'
-              onClick={() => setCurrent(q.question)}
-            >{q.question}</div>
-            {current === q.question && <p className="text-2xl">{q.answer}</p>}
-          </li>
-        ))}
+      <ul>
+        {questions.map((q) => (<FaqItem key={q.question} entry={q} open={q.question === current} setCurrent={setCurrent} />))}
       </ul>
     </section >
   )
+}
+
+interface FaqItemProps {
+  entry: FaqEntry
+  open: boolean
+  setCurrent: (c: string) => void
+}
+
+const FaqItem = ({ entry: q, open, setCurrent }: FaqItemProps) => {
+  const [parent] = useAutoAnimate<HTMLLIElement>({ disrespectUserMotionPreference: true })
+  return (
+    <li ref={parent} className={q.color}>
+      <div
+        className='font-em text-5xl'
+        onClick={() => setCurrent(q.question)}
+      >{q.question}</div>
+      {open && <p className="text-2xl">{q.answer}</p>}
+    </li>
+  )
+
 }
 
 
