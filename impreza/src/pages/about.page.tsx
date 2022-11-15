@@ -1,0 +1,4 @@
+export const foo = 'foo'
+export default function About() {
+  return <div></div>
+}

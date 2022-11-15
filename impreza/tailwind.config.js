@@ -10,6 +10,15 @@ module.exports = {
       body: '"Inter"'
     },
     extend: {
+      animation: {
+        blink: 'blink 1.2s step-end infinite',
+      },
+      keyframes: {
+        blink: {
+          'from, to': { opacity: 1 },
+          '50%': { opacity: 0 }
+        }
+      },
       backgroundImage: {
         'hero': "url('/images/hero.jpeg')"
       },
